@@ -233,7 +233,6 @@ export class DefaultDataProvider implements DataProvider {
             },
 
             [SOURCE_FORMAT_OBJECT_ROWS]: {
-                pure: true,
                 appendData: appendDataSimply
             },
 

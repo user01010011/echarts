@@ -43,7 +43,7 @@ under the License.
         <div id="main1"></div>
         <div id="main2"></div>
         <div id="main3"></div>
-
+        <div id="main4"></div>
 
 
 
@@ -734,7 +734,42 @@ under the License.
             });
         </script>
 
+        <script>
+            require([
+                'echarts',
+            ], function (echarts) {
+                var option;
 
+                option = {
+                    legend: {},
+                    tooltip: {},
+                    dataset: {
+                        dimensions: ['product', '2015', '2016', '2017'],
+                        source: [
+                            {product: 'Matcha Latte', '2015': 43.3, '2016': 85.8, '2017': 93.7, itemStyle: { opacity: 0.3, color: '#000', borderWidth: 10, borderColor: '#000' } },
+                            {product: 'Milk Tea', '2015': 83.1, '2016': 73.4, '2017': 55.1},
+                            {product: 'Cheese Cocoa', '2015': 86.4, '2016': 65.2, '2017': 82.5},
+                            {product: 'Walnut Brownie', '2015': 72.4, '2016': 53.9, '2017': 39.1}
+                        ]
+                    },
+                    xAxis: {type: 'category'},
+                    yAxis: {},
+                    series: [
+                        {type: 'bar'},
+                        {type: 'bar'},
+                        {type: 'bar'}
+                    ]
+                };
+                var chart = testHelper.create(echarts, 'main4', {
+                    title: [
+                        '**Matcha Latt** should have different **itemStyle**',
+                        'Test case from https://github.com/apache/echarts/issues/14116'
+                    ],
+                    option: option
+                });
+
+            });
+        </script>
 
 
 

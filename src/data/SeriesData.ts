@@ -629,8 +629,6 @@ class SeriesData<
 
         const nameList = this._nameList;
         const idList = this._idList;
-        const sourceFormat = provider.getSource().sourceFormat;
-        const isFormatOriginal = sourceFormat === SOURCE_FORMAT_ORIGINAL;
 
         // Each data item is value
         // [1, 2]
@@ -640,7 +638,7 @@ class SeriesData<
         // Use a tempValue to normalize the value to be a (x, y) value
         // If dataItem is {name: ...} or {id: ...}, it has highest priority.
         // This kind of ids and names are always stored `_nameList` and `_idList`.
-        if (isFormatOriginal && !provider.pure) {
+        if (!provider.pure) {
             const sharedDataItem = [] as OptionDataItem;
             for (let idx = start; idx < end; idx++) {
                 // NOTICE: Try not to write things into dataItem
